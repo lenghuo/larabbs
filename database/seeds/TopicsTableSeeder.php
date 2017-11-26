@@ -19,7 +19,7 @@ class TopicsTableSeeder extends Seeder
 
             $topic->category_id = $faker->randomElement($category_ids);
         });
-
+        
         Topic::insert($topics->toArray());
     }
 
