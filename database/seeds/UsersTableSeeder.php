@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\MOdels\User;
+use App\Models\User;
 
 class UsersTableSeeder extends Seeder
 {
@@ -13,7 +13,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         //
-        $faker =app(Faker\Generator::class);
+        $faker = app(Faker\Generator::class);
 
         $avatars = [
         	'https://fsdhubcdn.phphub.org/uploads/images/201710/14/1/s5ehp11z6s.png?imageView2/1/w/200/h/200',
@@ -31,6 +31,14 @@ class UsersTableSeeder extends Seeder
         					$user->avatar = $faker->randomElement($avatars);
         				}
         			);
-		
+        $user_array = $users->makeVisible(['password','remember_token'])->toArray();
+
+        User::insert($user_array);
+
+        $user = User::find(1);
+        $user->name = 'wxp';
+        $user->email = 'weixupeng@taoningxia.com';
+        $user->avatar = 'http://larabbs.app/uploads/images/avatars/201711/26//1_1511687030_Ua7XZaBDds.png';
+        $user->save();
     }
 }
