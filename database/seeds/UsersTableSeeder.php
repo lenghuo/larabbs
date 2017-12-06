@@ -40,5 +40,10 @@ class UsersTableSeeder extends Seeder
         $user->email = 'weixupeng@taoningxia.com';
         $user->avatar = 'http://larabbs.app/uploads/images/avatars/201711/26//1_1511687030_Ua7XZaBDds.png';
         $user->save();
+
+        $user->assignRole('Founder');
+
+        $user = User::find(2);
+        $user->assignRole('Maintainer');
     }
 }
