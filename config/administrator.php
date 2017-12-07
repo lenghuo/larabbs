@@ -104,8 +104,7 @@ return array(
      *
      * @type string
      */
-    'home_page' => 'topics
-   ',
+    'home_page' => 'topics',
 
     /*
      * The route to which the user will be taken when they click the "back to site" button
