@@ -16,7 +16,7 @@
 });
 */
 
-Route::get('/','PagesController@root')->name('root');
+Route::get('/','TopicsController@index')->name('root');
 Auth::routes();
 //Auth::routes()等同于下面的路由
 
