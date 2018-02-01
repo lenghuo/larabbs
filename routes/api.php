@@ -55,8 +55,15 @@ $api->version('v1', [
         *需要token验证的接口
         */
         $api->group(['middleware' => 'api.auth'], function($api) {
+            //用户登录
             $api->get('user','UsersController@me')
                 ->name('api.user.show');
+            //编辑登录用户信息
+            $api->patch('user','UsersController@update')
+                ->name('api.user.update');
+            //更新图片
+            $api->post('images','ImagesController@store')
+                ->name('api.images.store');
         });
     });
 });
