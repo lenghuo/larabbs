@@ -9,6 +9,27 @@ use App\Http\Requests\Api\TopicRequest;
 
 class TopicsController extends Controller
 {
+    public function index(Request $request,Topic $topic)
+    {
+        $query = $topic->query();
+
+        if ($categroyId = $request->category_id) {
+            $query->where('categroy_id',$categroyId);
+        }
+
+        switch ($request->order) {
+            case 'recent':
+                $query->recent();
+                break;
+            default:
+                $query->recentReplied();
+                break;
+        }
+
+        $topics = $query->paginate(20);
+
+        return $this->response->paginator($topics,new TopicTransformer());
+    }
     //
     public function store(TopicRequest $request,Topic $topic)
     {
