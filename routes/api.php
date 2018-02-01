@@ -51,6 +51,8 @@ $api->version('v1', [
         //删除token
         $api->delete('authorizations/current','AuthorizationsController@destory')
             ->name('api.authorizations.destory');
+        $api->get('categories','CategoriesController@index')
+            ->name('api.categories.index');
         /**
         *需要token验证的接口
         */
