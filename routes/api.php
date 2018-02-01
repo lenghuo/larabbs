@@ -70,6 +70,8 @@ $api->version('v1', [
                 ->name('api.topics.store');
             $api->patch('topics/{topic}','TopicsController@update')
                 ->name('api.topics.update');
+            $api->delete('topics/{topic}','TopicsController@destory')
+                ->name('api.topics.delete');
         });
     });
 });
