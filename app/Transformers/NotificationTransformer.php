@@ -7,6 +7,7 @@ use Illuminate\Notifications\DatabaseNotification;
 
 class NotificationTransformer extends TransformerAbstract
 {
+    //
     public function transform(DatabaseNotification $notification)
     {
         return [
