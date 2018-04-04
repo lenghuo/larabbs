@@ -59,6 +59,13 @@ $api->version('v1', [
             ->name('api.users.topics.index');
         $api->get('topics/{topic}','TopicsController@show')
             ->name('api.topics.show');
+            //话题回复列表
+        $api->get('topics/{topic}/replies','RepliesController@index')
+            ->name('api.topics.replies.index');
+            //某个用户的回复列表
+        $api->get('users/{user}/replies','RepliesController@userIndex')
+            ->name('api.users.replies.index');
+
         /**
         *需要token验证的接口
         */
@@ -82,17 +89,13 @@ $api->version('v1', [
                 ->name('api.topics.replies.store');*/
             $api->post('topics/{topic}/replies', 'RepliesController@store')
                 ->name('api.topics.replies.store');
+                //删除回复
             $api->delete('topics/{topic}/replies/{reply}', 'RepliesController@destroy')
                 ->name('api.topics.replies.destroy');
-                //某个用户发布的话题
-            $api->get('users/{topic}/topics','TopicsController@userIndex')
-                ->name('api.users.topics.index');
-                //话题回复列表
-            $api->get('topics/{topic}/replies','RepliesController@index')
-                ->name('api.topics.replies.index');
-                //某个用户的回复列表
-            $api->get('users/{user}/replies','RepliesController@userIndex')
-                ->name('api.users.replies.index');
+                //通知列表
+            $api->get('user/notifications','NotificationsController@index')
+                ->name('api.user.notifications.index');
+
         });
     });
 });
