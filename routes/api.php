@@ -95,10 +95,15 @@ $api->version('v1', [
                 //通知列表
             $api->get('user/notifications','NotificationsController@index')
                 ->name('api.user.notifications.index');
+                //未读消息数量
             $api->get('user/notifications/stats','NotificationsController@stats')
                 ->name('api.user.notifications.stats');
+                //标记消息为已读
             $api->patch('user/read/notifications','NotificationsController@read')
                 ->name('api.user.notifications.read');
+                //当前登录用户权限
+            $api->get('user/permissions','PermissionsController@index')
+                ->name('api.user.permissions.index');
         });
     });
 });
