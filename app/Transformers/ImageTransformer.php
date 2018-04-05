@@ -15,7 +15,7 @@ class ImageTransformer extends TransformerAbstract
 			'type' => $image->type,
 			'path' => $image->path,
 			'created_at' => $image->created_at->toDateTimeString(),
-			'updated_at' => $image->updated_at->toDateTimeString(), 
+			'updated_at' => $image->updated_at->toDateTimeString(),
 		];
 	}
 }
