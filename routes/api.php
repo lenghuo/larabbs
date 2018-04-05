@@ -68,7 +68,9 @@ $api->version('v1', [
             //获取资源推荐列表
         $api->get('links','LinksController@index')
             ->name('api.links.index');
-
+            //获取活跃用户列表
+        $api->get('actived/users','UsersController@activedIndex')
+            ->name('api.user.actived.index');
         /**
         *需要token验证的接口
         */

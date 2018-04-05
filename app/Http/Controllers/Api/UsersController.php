@@ -68,5 +68,10 @@ class UsersController extends Controller
                             ]);
     }
 
+    public function activedIndex(User $user)
+    {
+        $activedUser = $user->getActiveUsers();
 
+        return $this->response->collection($activedUser,new UserTransformer());
+    }
 }
