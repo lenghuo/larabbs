@@ -10,9 +10,11 @@ use Zend\Diactoros\Response as Psr7Response;
 use Psr\Http\Message\ServerRequestInterface;
 use League\OAuth2\Server\Exception\OAuthServerException;
 use League\OAuth2\Server\AuthorizationServer;
+use App\Models\Traits\PassportToken;
 
 class AuthorizationsController extends Controller
 {
+    use PassportToken;
     //
     public function socialStore($type,SocialAuthorizationRequest $request)
     {
@@ -61,7 +63,10 @@ class AuthorizationsController extends Controller
                 break;
         }
 
-        return $this->responseWithToken($token)->setStatusCode(201);
+        $result = $this->getBearerTokenByUser($user, '1', false);
+
+        //return $this->responseWithToken($token)->setStatusCode(201);
+        return $this->response->array($result)->setStatusCode(201);
     }
 
     /*public function store(AuthorizationRequest $request)
