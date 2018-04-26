@@ -37,8 +37,8 @@ class UsersController extends Controller
 
     public function me()
     {
-        //return $this->response->item($this->user(),new UserTransformer());
-        return $this->responseWithItem($this->user())->setStatusCode(201);
+        return $this->response->item($this->user(),new UserTransformer());
+        //return $this->responseWithItem($this->user())->setStatusCode(201);
     }
 
     public function update(UserRequest $request)
