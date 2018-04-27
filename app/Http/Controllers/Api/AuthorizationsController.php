@@ -139,7 +139,7 @@ class AuthorizationsController extends Controller
         return $this->response->array([
             'access_token' => $token,
             'token_type' => 'Bearer',
-            'expires_in' => \Auth::guard('api')->factory()->getTTL() * 60
+            'expired_in' => \Auth::guard('api')->factory()->getTTL() * 60
         ]);
     }
 
@@ -151,7 +151,7 @@ class AuthorizationsController extends Controller
 
     public function destory()
     {
-        \Auth::logout();
+        \Auth::guard('api')->logout();
         return $this->response->noContent();
     }
 }
