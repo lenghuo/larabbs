@@ -57,6 +57,9 @@ $api->version('v1', [
         //删除token
         $api->delete('authorizations/current','AuthorizationsController@destory')
             ->name('api.authorizations.destory');
+        // 用户详情
+        $api->get('users/{user}', 'UsersController@show')
+            ->name('api.users.show');
         $api->get('categories','CategoriesController@index')
             ->name('api.categories.index');
         $api->get('topics','TopicsController@index')

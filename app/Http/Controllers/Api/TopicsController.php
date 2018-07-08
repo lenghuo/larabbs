@@ -14,8 +14,8 @@ class TopicsController extends Controller
     {
         $query = $topic->query();
 
-        if ($categroyId = $request->category_id) {
-            $query->where('categroy_id',$categroyId);
+        if ($categoryId = $request->category_id) {
+            $query->where('category_id',$categoryId);
         }
 
         switch ($request->order) {

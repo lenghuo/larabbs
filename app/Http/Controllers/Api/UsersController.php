@@ -85,11 +85,16 @@ class UsersController extends Controller
         return $this->responseWithItem($this->user());
     }
 
+    public  function show(User $user)
+    {
+        return $this->response->item($user, new UserTransformer());
+    }
+
     public function update(UserRequest $request)
     {
         $user = $this->user();
 
-        $attributes = $request->only(['name','email','introduction','registration_id']);
+        $attributes = $request->only(['name','email','introduction','registration_id','phone']);
 
         if ($request->avatar_image_id) {
             $image = Image::find($request->avatar_image_id);

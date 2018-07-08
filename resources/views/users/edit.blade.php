@@ -27,6 +27,10 @@
                     <input class="form-control" type="text" name="email" id="email-field" value="{{ old('email', $user->email ) }}" />
                 </div>
                 <div class="form-group">
+                    <label for="email-field">手 机</label>
+                    <input class="form-control" type="text" name="phone" id="phone-field" value="{{ old('phone', $user->phone ) }}" />
+                </div>
+                <div class="form-group">
                     <label for="introduction-field">个人简介</label>
                     <textarea name="introduction" id="introduction-field" class="form-control" rows="3">{{ old('introduction', $user->introduction ) }}</textarea>
                 </div>
